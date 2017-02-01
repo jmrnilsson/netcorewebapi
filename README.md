@@ -16,8 +16,10 @@
 
 ## Supports the following development tools
 
-* Project Rider EAP OSX
-* Visual Studio Code OSX
+Tools | Platform | Latest version at date
+----- | -------- | ----------------------
+Project Rider EAP | OSX 10.11 | 2017-02-01
+Visual Studio Code  | OSX 10.11 | 2017-02-01
 
 ## Starting web server
 Remember to restore dependencies before running.
