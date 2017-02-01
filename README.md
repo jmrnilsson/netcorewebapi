@@ -9,6 +9,8 @@
  * Xunit
  * Test runner
  * Moq-preview
+ * Controller testing
+ * Integration testing (Internal with a TestHost)
  * Static files serving
  * HttpClient
  * Async tests
