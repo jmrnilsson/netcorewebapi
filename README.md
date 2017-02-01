@@ -2,7 +2,7 @@
 
 ## Features:
 
- * Working example with common commands like;
+ * Working example with common commands like:
     * `dotnet test`
     * `dotnet run`
     * `dotnet restore`
@@ -16,10 +16,13 @@
 
 ## Supports the following development tools
 
-Tools | Platform | Latest version at date
------ | -------- | ----------------------
-Project Rider EAP | OSX 10.11 | 2017-02-01
-Visual Studio Code  | OSX 10.11 | 2017-02-01
+Tools | Platform
+----- | --------
+Project Rider EAP (1) | OSX 10.11
+Visual Studio Code (1)  | OSX 10.11
+
+Verified with latest version at:
+- (1) - 2017-02-01
 
 ## Starting web server
 Remember to restore dependencies before running.
