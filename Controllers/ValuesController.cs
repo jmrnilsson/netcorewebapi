@@ -16,7 +16,8 @@ namespace WebApi.Controllers
             return new string[] {"value1", "value2"};
         }
 
-        // curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localh0/api/values/2
+        // curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
+        // http://localhost:5000/api/values/2
         [HttpGet("{id}")]
         public async Task<string> Get(int id)
         {
