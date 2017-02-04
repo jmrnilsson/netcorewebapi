@@ -30,3 +30,8 @@ Verified with latest version at:
 Remember to restore dependencies before running.
 
     dotnet run
+
+## Urls
+1. http://localhost:5000/api/values
+2. http://localhost:5000/api/values/1
+3. http://localhost:5000/example.json
