@@ -1,33 +1,32 @@
-using System;
 using Xunit;
-using Moq;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using WebApi.Controllers;
 
-namespace AptSalaryImport
+namespace WebApi
 {
-    // https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing
     public class Tests
     {
         [Fact]
-        public void HttpClient_TrueIsTrue()
+        public async Task Values_GetAsync()
         {
-            Assert.Equal(true, true);
+            var controller = new ValuesController();
+            var result = await controller.GetAsync(2);
+            Assert.NotNull(result);
         }
 
         [Fact]
-        public async Task Values_Index()
+        public void Values_Get()
         {
-            // Arrange
             var controller = new ValuesController();
+            var result = controller.Get(2);
+            Assert.NotNull(result);
+        }
 
-            // Act
-            var result = await controller.Get(2);
-
-            // Assert
+        [Fact]
+        public async Task Value_GetAwaitingAsync()
+        {
+            var controller = new ValuesController();
+            var result = await controller.GetAwaitingAsync(2);
             Assert.NotNull(result);
         }
     }
