@@ -18,7 +18,6 @@ namespace WebApi.Controllers
                 for (int i = 0; i < 1000; i++)
                 {
                     tasks.Add(GetSha256Async(client, $"{value+i++}"));
-
                 }
                 return await Task.WhenAll(tasks);
             }

@@ -1,23 +1,19 @@
-using System;
 using Xunit;
-using Moq;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using WebApi.Controllers;
 using Microsoft.AspNetCore.TestHost;
 using System.Net.Http;
-using Microsoft.AspNetCore.Builder;
-using Microsoft​.AspNetCore​.Hosting;
+using Microsoft.AspNetCore.Hosting;
 
 namespace WebApi
 {
-
     public class IntegrationTests
     {
         private readonly TestServer _server;
         private readonly HttpClient _client;
+
+        //   "xunit": "2.1.0",
+        //   "dotnet-test-xunit": "1.0.0-rc2-build10025",
+        //   "Microsoft.AspNetCore.TestHost": "1.1.0"
 
         public IntegrationTests()
         {
@@ -41,9 +37,3 @@ namespace WebApi
         }
     }
 }
-// https://docs.microsoft.com/en-us/aspnet/core/testing/integration-testing
-// "dependencies": {
-//   "xunit": "2.1.0",
-//   "dotnet-test-xunit": "1.0.0-rc2-build10025",
-//   "Microsoft.AspNetCore.TestHost": "1.1.0"
-// },

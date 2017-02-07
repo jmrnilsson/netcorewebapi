@@ -23,7 +23,7 @@ namespace WebApi
         }
 
         [Fact]
-        public async Task Value_GetAwaitingAsync()
+        public async Task Values_GetAwaitingAsync()
         {
             var controller = new ValuesController();
             var result = await controller.GetAwaitingAsync(2);
