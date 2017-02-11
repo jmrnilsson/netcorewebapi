@@ -34,10 +34,6 @@ namespace WebApiExample.Api
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
             services.AddScoped<HttpClientFactory>(serviceProvider => () => new HttpClient());
-
-            // http://kristian.hellang.com/third-party-dependency-injection-in-asp-net-core/
-            // services.AddSingleton<ICache, Cache>();
-            // services.AddScoped<IDatabaseSession, DatabaseSession>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
