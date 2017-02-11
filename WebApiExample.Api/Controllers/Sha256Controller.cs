@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace WebApiExample.Api.Controllers
 {
     [Route("api/[controller]")]
     public class Sha256Controller
