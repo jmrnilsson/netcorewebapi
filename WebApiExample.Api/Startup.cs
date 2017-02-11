@@ -1,11 +1,14 @@
+using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace WebApi
+namespace WebApiExample.Api
 {
+    public delegate HttpClient HttpClientFactory();
+
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -17,7 +20,6 @@ namespace WebApi
 
             if (env.IsEnvironment("Development"))
             {
-                // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
 
@@ -27,16 +29,17 @@ namespace WebApi
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
             services.AddMvc();
+            services.AddScoped<HttpClientFactory>(serviceProvider => () => new HttpClient());
+
+            // http://kristian.hellang.com/third-party-dependency-injection-in-asp-net-core/
+            // services.AddSingleton<ICache, Cache>();
+            // services.AddScoped<IDatabaseSession, DatabaseSession>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));

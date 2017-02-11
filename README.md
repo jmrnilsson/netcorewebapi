@@ -6,15 +6,18 @@
     * `dotnet test`
     * `dotnet run`
     * `dotnet restore`
- * Xunit
- * Test runner
- * Moq-preview
- * Controller testing
- * Integration testing (Internal with a TestHost)
- * Static files serving
- * HttpClient
- * Async tests
  * WebApi
+ * Multiple projects and solution-file
+ * Built-in DI capabilities http://kristian.hellang.com/third-party-dependency-injection-in-asp-net-core/
+ * Static files serving
+ * A testing environment including:
+    * Tools: Xunit, Xunit test runner, Moq and AspNet.TestHost
+    * Example of: HttpClient-fake, async tests and integration tests
+ * Benchmarking of Task.WhenAll a.s.o
+
+## Planned
+
+ * PowerShell for build automation and change detection across multiple projects similar to `Make`.
 
 ## Supports the following development tools
 

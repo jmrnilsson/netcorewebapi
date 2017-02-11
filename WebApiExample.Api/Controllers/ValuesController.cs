@@ -4,16 +4,32 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace WebApiExample.Api.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly HttpClientFactory _httpClientFactory;
+
+        public ValuesController(HttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
         [HttpGet("{value}")]
-        public async Task<string[]> GetAsync(int value)
+        public async Task<string> GetAsync(int value)
+        {
+            using (HttpClient client = _httpClientFactory())
+            {
+                return await GetSha256Async(client, value.ToString());
+            }
+        }
+
+        [HttpGet("bench/{value}")]
+        public async Task<string[]> GetBenchAsync(int value)
         {
             var tasks = new List<Task<string>>();
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = _httpClientFactory())
             {
                 for (int i = 0; i < 1000; i++)
                 {
@@ -23,10 +39,10 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpGet("{value}/sync")]
-        public IEnumerable<string> Get(int value)
+        [HttpGet("bench/{value}/sync")]
+        public IEnumerable<string> GetBench(int value)
         {
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = _httpClientFactory())
             {
                 for (int i = 0; i < 1000; i++)
                 {
@@ -35,11 +51,11 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpGet("{value}/await")]
-        public async Task<string[]> GetAwaitingAsync(int value)
+        [HttpGet("bench/{value}/await")]
+        public async Task<string[]> GetBenchAwaitingAsync(int value)
         {
             var tasks = new List<string>();
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = _httpClientFactory())
             {
                 for (int i = 0; i < 1000; i++)
                 {
